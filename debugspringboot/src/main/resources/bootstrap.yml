@@ -1,0 +1,17 @@
+server:
+  port: 50906
+
+spring:
+  application:
+    name: debugspringboot
+  profiles:
+    active: dev
+encrypt:
+  failOnError: false
+
+spring.jackson.date-format: yyyy-MM-dd HH:mm:ss
+spring.jackson.time-zone: GMT+8
+
+# logging.level.com.lensyn.usercenter.security.client.service.auth.AuthorizeService: debug
+# logging.level.com.netflix: debug
+logging.level.com.gyc: debug

@@ -1,0 +1,32 @@
+# datasource config
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://127.0.0.1:3307/init?characterEncoding=utf-8
+#    url: jdbc:mysql://127.0.0.1:8066/init?characterEncoding=utf-8
+    username: root
+    password:
+    hikari:
+      connectionTimeout: 100000
+      maximumPoolSize: 20
+      minimumIdle: 10
+      readOnly: false
+
+# eureka config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka
+    fetch-registry: true
+    register-with-eureka: true
+    healthcheck:
+      enabled: true
+  instance:
+      leaseRenewalIntervalInSeconds: 15
+      leaseExpirationDurationInSeconds: 60
+      prefer-ip-address: true
+      instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
+# logging config
+logging.level.com.suncd: debug
+framework.template.root: E:/project/gyc/MyBatis-Spring-Boot/templates
