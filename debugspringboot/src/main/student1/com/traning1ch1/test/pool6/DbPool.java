@@ -12,37 +12,37 @@ import java.util.LinkedList;
  * @date 2018/10/23 0023
  */
 public class DbPool {
-    private LinkedList<Connection> pools = new LinkedList<>();
+    private static LinkedList<Connection> pool = new LinkedList<>();
 
 
     public DbPool(int initalSize) {
         if (initalSize > 0) {
             for (int i = 0; i < initalSize; i++) {
-                Connection connect = new SqlConnectionImpl();
-                pools.addLast(connect);
+                Connection connect = new SqlConnectImpl();
+                pool.addLast(connect);
             }
         }
 
     }
 
-    public synchronized Connection getConnection(long mills) throws InterruptedException {
+    public  Connection getConnection(long mills) throws InterruptedException {
 
-        synchronized (pools) {
-            if (mills <= 0) {
-                if (pools.isEmpty()) {
-                    pools.wait();
+        synchronized (pool) {
+            if (mills < 0) {
+                while (pool.isEmpty()) {
+                    pool.wait();
                 }
-                return pools.removeFirst();
+                return pool.removeFirst();
             } else {
                 long overtime = System.currentTimeMillis() + mills;
-                long retains = mills;
-                while (pools.isEmpty() && retains > 0) {
-                    pools.wait(retains);
-                    retains = overtime - System.currentTimeMillis();
+                long remain = mills;
+                while (pool.isEmpty() && remain > 0) {
+                    pool.wait(remain);
+                    remain = overtime - System.currentTimeMillis();
                 }
                 Connection result = null;
-                if (!pools.isEmpty()) {
-                    result = pools.removeFirst();
+                if (!pool.isEmpty()) {
+                    result = pool.removeFirst();
                 }
                 return result;
             }
@@ -53,9 +53,9 @@ public class DbPool {
     public void relaseConn(Connection conn) {
 
         if (conn != null) {
-            synchronized (pools) {
-                pools.addLast(conn);
-                pools.notify();
+            synchronized (pool) {
+                pool.addLast(conn);
+                pool.notify();
             }
         }
     }

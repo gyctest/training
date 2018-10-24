@@ -20,6 +20,8 @@ public class TestDbPool {
 
 
     public static void main(String[] args) throws InterruptedException {
+        long begin = System.currentTimeMillis();
+
         int count = 20;//每个线程的操作次数
         DbPool pool = new DbPool(10);
         AtomicInteger user = new AtomicInteger(0);
@@ -30,6 +32,7 @@ public class TestDbPool {
         }
 
         countDownLatch.await();
+        System.out.println(Thread.currentThread().getName() + ",执行时间:" + (System.currentTimeMillis() - begin) + "ms");
         System.out.println(Thread.currentThread().getName() + ",获取所数量:" + user.intValue());
         System.out.println(Thread.currentThread().getName() + ",没有获取连接的数量:" + wait.intValue());
     }
@@ -55,7 +58,7 @@ public class TestDbPool {
                 Connection connection = null;
                 try {
                     long begin = System.currentTimeMillis();
-                    connection = pool.getConnection(100);
+                    connection = pool.getConnection(1000);
                     if (connection != null) {
                         try {
                             Statement statement = connection.createStatement();

@@ -15,8 +15,12 @@ import java.util.concurrent.Executor;
  * @version 1.0
  * @date 2018/10/23 0023
  */
-public class SqlConnectionImpl implements Connection {
+public class SqlConnectImpl implements Connection {
 
+    /*拿一个数据库连接*/
+    public static final Connection fetchConnection() {
+        return new SqlConnectImpl();
+    }
 
     @Override
     public boolean isWrapperFor(Class<?> arg0) throws SQLException {
