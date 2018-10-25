@@ -51,8 +51,31 @@ public class FindDirByForJoinsTest {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        File file = new File("F:\\");
+    /**
+     * 递归方式处理
+     *
+     * @param file
+     */
+    public static void resive(File file) {
+        if (file == null) {
+            return;
+        }
+        File[] files = file.listFiles();
+        if (files == null) {
+            return;
+        }
+        for (File file1 : files) {
+            if (file1.isDirectory()) {
+                resive(file1);
+            } else if (file1.getName().endsWith("txt")) {
+                System.out.println(file1.getAbsolutePath());
+            }
+        }
+    }
+
+    public static void main1(String[] args) throws Exception {
+        long begin = System.currentTimeMillis();
+        File file = new File("E:\\project\\acs");
         TestFor task = new TestFor(file);
 
         ForkJoinPool pool = new ForkJoinPool();
@@ -71,7 +94,17 @@ public class FindDirByForJoinsTest {
 
 
         task.join();//阻塞的方法
-        System.out.println("Task end");
+        System.out.println("Task end ,执行时间:" + (System.currentTimeMillis() - begin) + "ms.");
+    }
 
+    public static void main2(String[] args) {
+        long begin = System.currentTimeMillis();
+        File file = new File("E:\\project\\acs");
+        resive(file);
+        System.out.println("Task end ,执行时间:" + (System.currentTimeMillis() - begin) + "ms.");
+    }
+
+    public static void main(String[] args) throws Exception {
+        main1(args);
     }
 }
