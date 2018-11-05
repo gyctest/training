@@ -4,6 +4,7 @@ import com.gyc.cap2.bean.cap6.Pig2;
 import com.gyc.cap2.bean.cap7.Train;
 import com.gyc.cap2.config.MainCap6Config;
 import com.gyc.cap2.config.MainCap7Config;
+import com.gyc.cap2.config.MainCap8Config;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -53,6 +54,18 @@ public class TestCap6 {
         Object train = app.getBean(Train.class);
         System.out.println(train);
 //        Thread.sleep(1000);
+        app.close();
+    }
+
+
+    @Test
+    public void test8() throws InterruptedException {
+        AnnotationConfigApplicationContext app = new AnnotationConfigApplicationContext(MainCap8Config.class);
+        String[] beanDefinitionNames = app.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+
         app.close();
     }
 }
