@@ -5,10 +5,7 @@ import com.gyc.cap2.bean.cap7.Train;
 import com.gyc.cap2.bean.cap8.Bird;
 import com.gyc.cap2.bean.cap9.Moon;
 import com.gyc.cap2.bean.cap9.Sun;
-import com.gyc.cap2.config.MainCap6Config;
-import com.gyc.cap2.config.MainCap7Config;
-import com.gyc.cap2.config.MainCap8Config;
-import com.gyc.cap2.config.MainCap9Config;
+import com.gyc.cap2.config.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -84,6 +81,17 @@ public class TestCap6 {
 
         System.out.println(app.getBean(Moon.class));
         System.out.println(app.getBean(Sun.class));
+        app.close();
+    }
+
+    @Test
+    public void test10() throws InterruptedException {
+        AnnotationConfigApplicationContext app = new AnnotationConfigApplicationContext(MainCap10Config.class);
+        String[] beanDefinitionNames = app.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+
         app.close();
     }
 }
