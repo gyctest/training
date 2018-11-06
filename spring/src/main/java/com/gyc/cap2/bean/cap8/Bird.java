@@ -1,5 +1,7 @@
 package com.gyc.cap2.bean.cap8;
 
+import org.springframework.beans.factory.annotation.Value;
+
 /**
  * 描述:
  * <p>
@@ -9,7 +11,9 @@ package com.gyc.cap2.bean.cap8;
  * @date 2018/11/5 0005
  */
 public class Bird {
+    @Value("${bird.name}")
     private String name;
+    @Value("#{2+18}")
     private Integer age;
 
     public Bird() {
