@@ -1,5 +1,6 @@
 package com.gyc.cap2.test;
 
+import com.gyc.cap2.aop.Calculator;
 import com.gyc.cap2.bean.cap6.Pig2;
 import com.gyc.cap2.bean.cap7.Train;
 import com.gyc.cap2.bean.cap8.Bird;
@@ -92,6 +93,8 @@ public class TestCap6 {
             System.out.println(beanDefinitionName);
         }
 
+        Calculator bean = app.getBean(Calculator.class);
+        bean.div(4, 2);
         app.close();
     }
 }
