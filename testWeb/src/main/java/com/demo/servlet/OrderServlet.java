@@ -1,6 +1,7 @@
 package com.demo.servlet;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,11 +15,12 @@ import java.io.IOException;
  * @version 1.0
  * @date 2018/11/12 0012
  */
-public class DemoServlet extends HttpServlet {
+@WebServlet("/order")
+public class OrderServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.err.println("xxxxxxxxxxxxxxxxxxxxxxx DemoServlet.doGet xxxxxxxxxxxxxxxxxxxxxxx");
-        resp.getWriter().write("demo servlet success..........");
+        System.err.println("xxxxxxxxxxxxxxxxxxxxxxx OrderServlet.doGet xxxxxxxxxxxxxxxxxxxxxxx");
+        resp.getWriter().write("order servlet success..........");
     }
 }
