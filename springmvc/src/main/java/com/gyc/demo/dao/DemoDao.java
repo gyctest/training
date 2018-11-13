@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class DemoDao {
     public void insert() {
-
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXX DemoDao XXXXXXXXXXXXXXXXXXXXXXXXX");
     }
 }

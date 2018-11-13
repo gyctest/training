@@ -19,6 +19,7 @@ public class DemoService {
     private DemoDao demoDao;
 
     public void buyService() {
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXX DemoService XXXXXXXXXXXXXXXXXXXXXXXXX");
         demoDao.insert();
     }
 }

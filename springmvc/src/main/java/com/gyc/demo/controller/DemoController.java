@@ -23,6 +23,7 @@ public class DemoController {
     @ResponseBody
     @RequestMapping("/buy")
     public String buy() {
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXX DemoController XXXXXXXXXXXXXXXXXXXXXXXXX");
         demoService.buyService();
 
         return " buy invoke success...";
