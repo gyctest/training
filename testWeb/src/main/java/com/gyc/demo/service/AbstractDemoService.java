@@ -1,4 +1,4 @@
-package com.demo.service;
+package com.gyc.demo.service;
 
 /**
  * 描述:

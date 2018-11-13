@@ -1,4 +1,4 @@
-package com.demo.filter;
+package com.gyc.demo.filter;
 
 import javax.servlet.*;
 import java.io.IOException;

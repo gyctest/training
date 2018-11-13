@@ -1,9 +1,9 @@
-package com.demo.config;
+package com.gyc.demo.config;
 
-import com.demo.filter.DemoFilter;
-import com.demo.listener.DemoListener;
-import com.demo.service.DemoService;
-import com.demo.servlet.DemoServlet;
+import com.gyc.demo.filter.DemoFilter;
+import com.gyc.demo.listener.DemoListener;
+import com.gyc.demo.service.DemoService;
+import com.gyc.demo.servlet.DemoServlet;
 
 import javax.servlet.*;
 import javax.servlet.annotation.HandlesTypes;

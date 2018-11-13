@@ -1,6 +1,4 @@
-package com.demo.service;
-
-import com.demo.servlet.DemoServlet;
+package com.gyc.demo.service;
 
 /**
  * 描述:

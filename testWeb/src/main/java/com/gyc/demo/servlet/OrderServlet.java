@@ -1,4 +1,4 @@
-package com.demo.servlet;
+package com.gyc.demo.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

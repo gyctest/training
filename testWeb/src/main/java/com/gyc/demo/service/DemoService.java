@@ -1,4 +1,4 @@
-package com.demo.service;
+package com.gyc.demo.service;
 
 /**
  * 描述:
@@ -8,5 +8,5 @@ package com.demo.service;
  * @version 1.0
  * @date 2018/11/13 0013
  */
-public class DemoServiceImpl implements DemoService {
+public interface DemoService {
 }
