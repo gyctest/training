@@ -20,6 +20,7 @@ public class DemoServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.err.println("xxxxxxxxxxxxx########################XXXXXXXXXXXXXXXXXXXXXXXXXXX");
         resp.getWriter().write("success..........");
     }
 }
