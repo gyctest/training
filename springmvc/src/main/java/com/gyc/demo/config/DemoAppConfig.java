@@ -42,18 +42,18 @@ public class DemoAppConfig implements WebMvcConfigurer {
         registry.addInterceptor(new HandlerInterceptor() {
             @Override
             public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-                System.out.println(request.getRequestURI() + "拦截器:preHandle");
+                System.out.println(request.getRequestURI() +"->"+Thread.currentThread().getName()+ "->拦截器:preHandle");
                 return true;
             }
 
             @Override
             public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-                System.out.println(request.getRequestURI() + "拦截器:postHandle");
+                System.out.println(request.getRequestURI() + "->"+Thread.currentThread().getName()+ "->拦截器:postHandle");
             }
 
             @Override
             public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-                System.out.println(request.getRequestURI() + "拦截器:afterCompletion");
+                System.out.println(request.getRequestURI() + "->"+Thread.currentThread().getName()+ "->拦截器:afterCompletion");
             }
         }).addPathPatterns("/*");
 

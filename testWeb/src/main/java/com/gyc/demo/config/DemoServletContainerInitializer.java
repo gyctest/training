@@ -3,6 +3,7 @@ package com.gyc.demo.config;
 import com.gyc.demo.filter.DemoFilter;
 import com.gyc.demo.listener.DemoListener;
 import com.gyc.demo.service.DemoService;
+import com.gyc.demo.servlet.AsyncServlet;
 import com.gyc.demo.servlet.DemoServlet;
 
 import javax.servlet.*;
@@ -32,6 +33,8 @@ public class DemoServletContainerInitializer implements ServletContainerInitiali
         //servlet
         ServletRegistration.Dynamic servlet = ctx.addServlet("demo", DemoServlet.class);
         servlet.addMapping("/demo");
+
+//        ctx.addServlet("asyn",AsyncServlet.class).addMapping("/async");
 
         //listener
         ctx.addListener(new DemoListener());
