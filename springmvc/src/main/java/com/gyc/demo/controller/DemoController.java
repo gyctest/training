@@ -28,4 +28,11 @@ public class DemoController {
 
         return " buy invoke success...";
     }
+
+
+    @RequestMapping("/order")
+    public String order() {
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXx order XXXXXXXXXXXXXXXXXXXXXXXXXX");
+        return "ok";
+    }
 }
