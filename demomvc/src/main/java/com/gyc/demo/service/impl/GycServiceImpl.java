@@ -14,14 +14,17 @@ import com.gyc.demo.service.GycService;
 @DemoService("gycService")
 public class GycServiceImpl implements GycService {
 
+    @Override
     public String query(String name, String age) {
         return "query:" + name + age;
     }
 
+    @Override
     public String insert(String name) {
         return "insert:" + name;
     }
 
+    @Override
     public String update(String name) {
         return "update:" + name;
     }
